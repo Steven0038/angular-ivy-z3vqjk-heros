@@ -16,9 +16,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component'
 
 @NgModule({
-  imports: [ BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
+  imports: [ 
+    BrowserModule, 
+    FormsModule, 
+    AppRoutingModule, 
+    HttpClientModule,
+    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+    // and returns simulated server responses.
+    // Remove it when a real server is ready to receive requests.
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )],
   declarations: [ AppComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [HeroService, MessageService]
+  providers: [HeroService, MessageService, InMemoryDataService]
 })
 export class AppModule { }
