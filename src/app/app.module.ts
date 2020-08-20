@@ -13,7 +13,8 @@ import { MessagesComponent } from './messages/messages.component';
 import { MessageService } from './message.service';
 
 import { AppRoutingModule } from './app-routing.module';
-import { DashboardComponent } from './dashboard/dashboard.component'
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeroSearchComponent } from './hero-search/hero-search.component'
 
 @NgModule({
   imports: [ 
@@ -27,7 +28,7 @@ import { DashboardComponent } from './dashboard/dashboard.component'
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )],
-  declarations: [ AppComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent ],
+  declarations: [ AppComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent, HeroSearchComponent ],
   bootstrap:    [ AppComponent ],
   providers: [HeroService, MessageService, InMemoryDataService]
 })
