@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
 import { HttpClient, HttpHeaders } from '@angular/common/http'
+
+import { Observable, of } from "rxjs";
+import { catchError, map, tap } from 'rxjs/operators';
 
 import { Hero } from "./hero";
 import { HEROES } from "./mock-heroes";
@@ -65,7 +67,7 @@ export class HeroService {
     );
   }
 
-  searchHeros(term: string): Observable<Hero[]> {
+  searchHeroes(term: string): Observable<Hero[]> {
     if (!term.trim) {
       // if not search term, return empty hero array.
       return of([]);
